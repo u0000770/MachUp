@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5ca26f16-1149-4b2b-a207-ad840adc98d1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60909/Plants.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Plants.disco" MetadataType="Disco" ID="486a4740-3790-4e46-a175-e58f9960df79" SourceId="1" SourceUrl="http://localhost:60909/Plants.svc?disco" />
+    <MetadataFile FileName="Plants.xsd" MetadataType="Schema" ID="7b77ccad-6bd1-47d8-969f-3b84e1fa057c" SourceId="1" SourceUrl="http://localhost:60909/Plants.svc?xsd=xsd0" />
+    <MetadataFile FileName="Plants1.xsd" MetadataType="Schema" ID="b9f72671-57cc-44f4-b49f-4d29d8c3c0f1" SourceId="1" SourceUrl="http://localhost:60909/Plants.svc?xsd=xsd1" />
+    <MetadataFile FileName="Plants2.xsd" MetadataType="Schema" ID="e672f2b9-4208-4070-9210-55a79de9fe33" SourceId="1" SourceUrl="http://localhost:60909/Plants.svc?xsd=xsd2" />
+    <MetadataFile FileName="Plants.wsdl" MetadataType="Wsdl" ID="65c90e09-869e-4de9-a6fe-8b633471190c" SourceId="1" SourceUrl="http://localhost:60909/Plants.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
