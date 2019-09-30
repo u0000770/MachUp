@@ -78,7 +78,7 @@ namespace PlantRepository
         public void UpdatePlant(PlantDomain.Plant plant)
         {
 
-            PlantDAL.Stock stockItem = context.Stocks.SingleOrDefault(s => s.SKU == plant.SKU);
+            PlantDAL.Stock stockItem = context.Stocks.SingleOrDefault(s => s.SKU == plant.SKU & (s.Active == true | s.Active != false) );
             stockItem.Name = plant.Name;
             stockItem.Price = plant.Price;
             stockItem.FormSize = plant.FormSize;

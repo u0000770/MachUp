@@ -17,5 +17,12 @@ namespace MVCServiceClient.Controllers
             IEnumerable<ViewModels.PlantItemVM> ViewModel = ViewModels.PlantItemVM.buildModel(AllPlants);
             return View(ViewModel);
         }
+
+        public ActionResult Details(string id)
+        {
+            PlantWCF.PlantDetail aPlant = client.GetBySKU(id);
+            ViewModels.PlantDetailVM ViewModel = ViewModels.PlantDetailVM.buildModel(aPlant);
+            return View(ViewModel);
+        }
     }
 }

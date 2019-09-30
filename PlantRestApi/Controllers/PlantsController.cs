@@ -5,9 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace PlantRestApi.Controllers
 {
+
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PlantsController : ApiController
     {
         private IPlantRepository repository;
@@ -34,9 +37,9 @@ namespace PlantRestApi.Controllers
         }
 
         // GET: api/Plants/5
-        public DTObjects.PlantDetail Get(string sku)
+        public DTObjects.PlantDetail Get(string id)
         {
-            var thisPlant = repository.GetPlantBySku(sku);
+            var thisPlant = repository.GetPlantBySku(id);
             return DTObjects.PlantDetail.BuildDTO(thisPlant);
         }
 
