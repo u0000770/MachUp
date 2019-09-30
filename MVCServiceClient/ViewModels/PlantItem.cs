@@ -43,7 +43,7 @@ namespace MVCServiceClient.ViewModels
 
 
 
-    public class PlantDetailVM : PlantItem
+    public class PlantDetailVM : MVCServiceClient.ViewModels.PlantItemVM
     {
         [Display(Name = "Form Type")]
         public string formSize { get; set; }
@@ -55,8 +55,8 @@ namespace MVCServiceClient.ViewModels
         {
             return new PlantDetailVM
             {
-                Sku = plant.Sku,
-                Name = plant.Name,
+                sku = plant.Sku,
+                name = plant.Name,
                 formSize = plant.FormSize,
                 price = plant.Price
 
@@ -67,9 +67,8 @@ namespace MVCServiceClient.ViewModels
         {
             return new PlantDetailVM
             {
-                 
-                sku = plant.Sku,
-                name = plant.Name,
+                  sku = plant.Sku,
+                 name = plant.Name,
                 formSize = plant.FormSize,
                 price = plant.Price
 
