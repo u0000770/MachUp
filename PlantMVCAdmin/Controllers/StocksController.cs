@@ -15,12 +15,23 @@ namespace PlantMVCAdmin.Controllers
     {
         private IPlantRepository  repository;
 
+        /// <summary>
+        /// DB Injection
+        /// </summary>
         public StocksController()
         {
             this.repository = new PlantRepository.PlantRepository(new PlantDAL.plantsEntities());
         }
 
-  
+        /// <summary>
+        /// Mock Injection
+        /// </summary>
+        //public StocksController()
+        //{
+        //    this.repository = new PlantRepository.PlantRepository(new MockPlants.MockPlantEntities());
+        //}
+
+
 
 
         public StocksController(IPlantRepository repository)

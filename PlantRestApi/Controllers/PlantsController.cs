@@ -15,10 +15,18 @@ namespace PlantRestApi.Controllers
     {
         private IPlantRepository repository;
 
+
+        // DB Injection
         public PlantsController()
         {
             this.repository = new PlantRepository.PlantRepository(new PlantDAL.plantsEntities());
         }
+
+        // Mock injection
+        //public PlantsController()
+        //{
+        //    this.repository = new PlantRepository.PlantRepository(new MockPlants.MockPlantEntities());
+        //}
 
 
 

@@ -9,12 +9,19 @@ namespace PlantRepository
 {
     public class PlantRepository: IPlantRepository
     {
-        private PlantDAL.plantsEntities context;
+       private PlantDAL.plantsEntities context;
+
+        // private MockPlants.MockPlantEntities context;
 
         public PlantRepository(PlantDAL.plantsEntities context)
         {
             this.context = context;
         }
+
+        //public PlantRepository(MockPlants.MockPlantEntities context)
+        //{
+        //    this.context = context;
+        //}
 
         public IEnumerable<PlantDomain.Plant> GetAllPlants()
         {
@@ -50,7 +57,7 @@ namespace PlantRepository
 
         }
 
-
+      
         public void AddPlant(PlantDomain.Plant plant)
         {
             PlantDAL.Stock stockItem = new PlantDAL.Stock
@@ -74,11 +81,38 @@ namespace PlantRepository
 
         }
 
+        /// <summary>
+        /// Mock Implementation
+        /// </summary>
+        /// <param name="sku"></param>
+        //public void RemovePlant(string sku)
+        //{
+        //    PlantDAL.Stock stockItem = context.Stocks.SingleOrDefault(s => s.SKU == sku);
+        //    stockItem.Active = false;
+        //    context.Stocks.Remove(stockItem);
+        //    context.Stocks.Add(stockItem);
 
+        //}
+
+        /// Mock Implementaion
+        //public void UpdatePlant(PlantDomain.Plant plant)
+        //{
+
+        //    PlantDAL.Stock stockItem = context.Stocks.SingleOrDefault(s => s.SKU == plant.SKU & (s.Active == true | s.Active != false));
+        //    context.Stocks.Remove(stockItem);
+        //    stockItem.Name = plant.Name;
+        //    stockItem.Price = plant.Price;
+        //    stockItem.FormSize = plant.FormSize;
+        //    context.Stocks.Add(stockItem);
+
+        //}
+
+       
+        /// DB Implementation
         public void UpdatePlant(PlantDomain.Plant plant)
         {
 
-            PlantDAL.Stock stockItem = context.Stocks.SingleOrDefault(s => s.SKU == plant.SKU & (s.Active == true | s.Active != false) );
+            PlantDAL.Stock stockItem = context.Stocks.SingleOrDefault(s => s.SKU == plant.SKU & (s.Active == true | s.Active != false));
             stockItem.Name = plant.Name;
             stockItem.Price = plant.Price;
             stockItem.FormSize = plant.FormSize;

@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCServiceClient", "MVCServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantRestApi", "PlantRestApi\PlantRestApi.csproj", "{0C5F9BB9-437F-4555-B404-0DD3F069BB8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockPlants", "MockPlants\MockPlants.csproj", "{A032C9F6-C788-4BCB-B219-8306A8764B13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{0C5F9BB9-437F-4555-B404-0DD3F069BB8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C5F9BB9-437F-4555-B404-0DD3F069BB8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C5F9BB9-437F-4555-B404-0DD3F069BB8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A032C9F6-C788-4BCB-B219-8306A8764B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A032C9F6-C788-4BCB-B219-8306A8764B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A032C9F6-C788-4BCB-B219-8306A8764B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A032C9F6-C788-4BCB-B219-8306A8764B13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

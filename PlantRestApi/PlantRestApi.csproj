@@ -272,6 +272,10 @@
       <Project>{43ed9648-a95a-427b-a801-8225befe4af4}</Project>
       <Name>DTObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MockPlants\MockPlants.csproj">
+      <Project>{A032C9F6-C788-4BCB-B219-8306A8764B13}</Project>
+      <Name>MockPlants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlantDAL\PlantDAL.csproj">
       <Project>{0bdc027a-8653-4528-9538-4eca86a68cbf}</Project>
       <Name>PlantDAL</Name>

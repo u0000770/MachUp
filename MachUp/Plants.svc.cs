@@ -19,6 +19,11 @@ namespace MachUp
             this.repository = new PlantRepository.PlantRepository(new PlantDAL.plantsEntities());
         }
 
+        //public Plants()
+        //{
+        //    this.repository = new PlantRepository.PlantRepository(new MockPlants.MockPlantEntities());
+        //}
+
         public IEnumerable<DTObjects.PlantItem> GetAll()
         {
             var AllPlants = repository.GetAllPlants();

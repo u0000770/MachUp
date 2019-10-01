@@ -200,6 +200,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MockPlants\MockPlants.csproj">
+      <Project>{a032c9f6-c788-4bcb-b219-8306a8764b13}</Project>
+      <Name>MockPlants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlantDAL\PlantDAL.csproj">
       <Project>{0bdc027a-8653-4528-9538-4eca86a68cbf}</Project>
       <Name>PlantDAL</Name>

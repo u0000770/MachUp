@@ -244,6 +244,10 @@
       <Project>{43ed9648-a95a-427b-a801-8225befe4af4}</Project>
       <Name>DTObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MockPlants\MockPlants.csproj">
+      <Project>{a032c9f6-c788-4bcb-b219-8306a8764b13}</Project>
+      <Name>MockPlants</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
