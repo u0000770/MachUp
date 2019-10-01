@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -36,13 +37,16 @@ namespace MVCServiceClient.Controllers
         }
 
 
-        private static DTObjects.PlantDetail GetPlantBySku(HttpClient client, string sku)
+        private static DTObjects.PlantDetail GetPlantBySku(HttpClient client, string id)
         {
-            string request = "api/plants" + sku;
+            string request = "api/plants/" + id;
             HttpResponseMessage response = client.GetAsync(request).Result;
             if (response.IsSuccessStatusCode)
             {
-                return response.Content.ReadAsAsync<DTObjects.PlantDetail>().Result;
+                var content = response.Content.ReadAsStringAsync().Result;
+                var result = JsonConvert.DeserializeObject<DTObjects.PlantDetail>(content);
+                return result;
+
             }
             else
             {
@@ -60,11 +64,11 @@ namespace MVCServiceClient.Controllers
 
         }
 
-        public ActionResult Details(string sku)
+        public ActionResult Details(string id)
         {
 
             HttpClient client = PlantClient();
-            DTObjects.PlantDetail plant = GetPlantBySku(client,sku);
+            DTObjects.PlantDetail plant = GetPlantBySku(client,id);
             MVCServiceClient.ViewModels.PlantDetailVM ViewModel = ViewModels.PlantDetailVM.buildModel(plant);
             return View(ViewModel);
 
