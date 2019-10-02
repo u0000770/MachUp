@@ -8,8 +8,6 @@ using DTObjects;
 namespace MVCServiceClient.ViewModels
 {
 
-
-
     public class PlantItemVM
     {
         [Display(Name = "Stock Number")]
@@ -40,8 +38,6 @@ namespace MVCServiceClient.ViewModels
             }).AsEnumerable();
         }
     }
-
-
 
     public class PlantDetailVM : MVCServiceClient.ViewModels.PlantItemVM
     {

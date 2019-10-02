@@ -56,8 +56,7 @@ namespace PlantRepository
 
 
         }
-
-      
+     
         public void AddPlant(PlantDomain.Plant plant)
         {
             PlantDAL.Stock stockItem = new PlantDAL.Stock
@@ -82,7 +81,7 @@ namespace PlantRepository
         }
 
         /// <summary>
-        /// Mock Implementation
+        /// Mock Implementation of Remove
         /// </summary>
         /// <param name="sku"></param>
         //public void RemovePlant(string sku)
@@ -91,10 +90,9 @@ namespace PlantRepository
         //    stockItem.Active = false;
         //    context.Stocks.Remove(stockItem);
         //    context.Stocks.Add(stockItem);
-
         //}
 
-        /// Mock Implementaion
+        /// Mock Implementaion of Update
         //public void UpdatePlant(PlantDomain.Plant plant)
         //{
 

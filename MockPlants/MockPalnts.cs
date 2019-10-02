@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace MockPlants
 {
   
-
     public class MockPlantEntities
     {
         public List<PlantDAL.Stock> Stocks { get; set; }
@@ -29,7 +28,7 @@ namespace MockPlants
                 Name = "Abies alba",
                  FormSize = "P2",
                   Price = 2.50m,
-                Active = true
+                   Active = true
             });
             Stocks.Add(new PlantDAL.Stock
             {
