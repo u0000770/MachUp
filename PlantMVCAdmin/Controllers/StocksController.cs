@@ -68,15 +68,17 @@ namespace PlantMVCAdmin.Controllers
         }
 
         // POST: Stocks/Create
-        // THIS DOES NOT PREVENT DUPLICATE SKU ?????
+        // THIS  PREVENTs DUPLICATE SKU ?????
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PlantDomain.Plant plant)
         {
             if (ModelState.IsValid)
             {
-                repository.AddPlant(plant);
-                repository.Save();
+                if (repository.AddPlant(plant))
+                {
+                    repository.Save();
+                }
                 return RedirectToAction("Index");
             }
 

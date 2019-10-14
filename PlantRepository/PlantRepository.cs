@@ -57,18 +57,23 @@ namespace PlantRepository
 
         }
      
-        public void AddPlant(PlantDomain.Plant plant)
+        public bool AddPlant(PlantDomain.Plant plant)
         {
-            PlantDAL.Stock stockItem = new PlantDAL.Stock
+            PlantDAL.Stock existingItem = context.Stocks.FirstOrDefault(s => s.SKU == plant.SKU && (s.Active == null || s.Active == true));
+            if (existingItem == null)
             {
-                SKU = plant.SKU,
-                Name = plant.Name,
-                FormSize = plant.FormSize,
-                Price = plant.Price,
-                Active = true
-            };
-            context.Stocks.Add(stockItem);
-
+                PlantDAL.Stock stockItem = new PlantDAL.Stock
+                {
+                    SKU = plant.SKU,
+                    Name = plant.Name,
+                    FormSize = plant.FormSize,
+                    Price = plant.Price,
+                    Active = true
+                };
+                context.Stocks.Add(stockItem);
+                return true;
+            }
+            return false;
         }
 
 

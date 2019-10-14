@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
@@ -20,6 +21,46 @@ namespace MVCServiceClient.Controllers
             client.BaseAddress = new System.Uri("http://localhost:56726/");
             client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
             return client;
+        }
+
+        // GET: Stocks/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Stocks/Create
+        // THIS DOES NOT PREVENT DUPLICATE SKU ?????
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(MVCServiceClient.ViewModels.PlantDetailVM plant)
+        {
+            var client = PlantClient();
+            if (ModelState.IsValid)
+            {
+                DTObjects.PlantDetail dto = MVCServiceClient.ViewModels.PlantDetailVM.buildModel(plant);
+                HttpResponseMessage response = null;
+                try
+                {
+                    response = client.PostAsJsonAsync("api/plants", dto).Result;
+                    response.EnsureSuccessStatusCode();
+                }
+                catch (HttpRequestException)
+                {
+                    //if (response.StatusCode == HttpStatusCode.NotFound) // 404
+                    //{
+                    //    return View(plant);
+                    //}
+
+                    return View(plant);
+
+                }
+                // return URI of the created resource.
+               // return response.Headers.Location;
+                return RedirectToAction("Index");
+            }
+
+            return View(plant);
         }
 
         private static IEnumerable<DTObjects.PlantItem> GetPlants(HttpClient client)

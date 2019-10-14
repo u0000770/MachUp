@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.Description;
 
 namespace PlantRestApi.Controllers
 {
@@ -28,9 +29,6 @@ namespace PlantRestApi.Controllers
         //    this.repository = new PlantRepository.PlantRepository(new MockPlants.MockPlantEntities());
         //}
 
-
-
-
         public PlantsController(IPlantRepository repository)
         {
             this.repository = repository;
@@ -52,13 +50,69 @@ namespace PlantRestApi.Controllers
         }
 
         // POST: api/Plants
-        public void Post([FromBody]string value)
+
+       
+        public IHttpActionResult PostStock(DTObjects.PlantDetail plant)
         {
+            PlantDomain.Plant stockItem = new PlantDomain.Plant();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                stockItem.SKU = plant.Sku;
+                stockItem.Name = plant.Name;
+                stockItem.FormSize = plant.FormSize;
+                stockItem.Price = plant.Price;
+                if (repository.AddPlant(stockItem))
+                {
+                    repository.Save();
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message); 
+            }
+
+            return CreatedAtRoute("DefaultApi", new { sku = stockItem.SKU }, stockItem);
         }
 
-        // PUT: api/Plants/5
-        public void Put(int id, [FromBody]string value)
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutStock(DTObjects.PlantDetail plant)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var thisPlant = repository.GetPlantBySku(plant.Sku);
+
+            if (thisPlant == null)
+            {
+                return BadRequest();
+            }
+
+            thisPlant.FormSize = plant.FormSize;
+            thisPlant.Name = plant.Name;
+            thisPlant.Price = plant.Price;
+
+            repository.UpdatePlant(thisPlant);
+
+            try
+            {
+                repository.Save();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // DELETE: api/Plants/5

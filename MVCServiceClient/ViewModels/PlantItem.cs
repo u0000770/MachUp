@@ -10,8 +10,11 @@ namespace MVCServiceClient.ViewModels
 
     public class PlantItemVM
     {
+        [Required]
         [Display(Name = "Stock Number")]
         public string sku { get; set; }
+
+        [Required]
         [Display(Name = "Plant Name")]
         public string name { get; set; }
 
@@ -37,12 +40,18 @@ namespace MVCServiceClient.ViewModels
 
             }).AsEnumerable();
         }
+
+   
     }
 
     public class PlantDetailVM : MVCServiceClient.ViewModels.PlantItemVM
     {
+        [Required]
         [Display(Name = "Form Type")]
         public string formSize { get; set; }
+
+        [Required]
+        [DataType(DataType.Currency)]
         [Display(Name = "Price")]
         public decimal price { get; set; }
 
@@ -55,6 +64,18 @@ namespace MVCServiceClient.ViewModels
                 name = plant.Name,
                 formSize = plant.FormSize,
                 price = plant.Price
+
+            };
+        }
+
+        public static DTObjects.PlantDetail buildModel(PlantDetailVM plant)
+        {
+            return new DTObjects.PlantDetail
+            {
+                 Sku = plant.sku,
+                 Name = plant.name,
+                 FormSize = plant.formSize,
+                 Price = plant.price
 
             };
         }

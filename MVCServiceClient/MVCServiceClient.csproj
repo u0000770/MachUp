@@ -216,6 +216,7 @@
     <Content Include="Views\Rest\Index.cshtml" />
     <Content Include="Views\WCF\Details.cshtml" />
     <Content Include="Views\Rest\Details.cshtml" />
+    <Content Include="Views\Rest\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
