@@ -36,17 +36,37 @@ namespace PlantRestApi.Controllers
 
 
         // GET: api/Plants
-        public IEnumerable<DTObjects.PlantItem> Get()
+
+        public IHttpActionResult Get()
         {
             IEnumerable<PlantDomain.Plant> all = repository.GetAllPlants();
-            return DTObjects.PlantItem.BuildDTO(all);
+            if (all.Count() == 0)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var dto = DTObjects.PlantItem.BuildDTO(all);
+                return Ok(dto);
+            }
+      
         }
 
-        // GET: api/Plants/5
-        public DTObjects.PlantDetail Get(string id)
+        // GET: api/Plants/sku
+        public IHttpActionResult Get(string id)
         {
             var thisPlant = repository.GetPlantBySku(id);
-            return DTObjects.PlantDetail.BuildDTO(thisPlant);
+
+            if (thisPlant == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var dto = DTObjects.PlantDetail.BuildDTO(thisPlant);
+                return Ok(dto);
+            }
+
         }
 
         // POST: api/Plants
@@ -87,14 +107,14 @@ namespace PlantRestApi.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return StatusCode(HttpStatusCode.BadRequest);
             }
 
             var thisPlant = repository.GetPlantBySku(plant.Sku);
 
             if (thisPlant == null)
             {
-                return BadRequest();
+                return StatusCode(HttpStatusCode.NotFound);
             }
 
             thisPlant.FormSize = plant.FormSize;
@@ -109,15 +129,35 @@ namespace PlantRestApi.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return StatusCode(HttpStatusCode.InternalServerError);
             }
 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // DELETE: api/Plants/5
-        public void Delete(int id)
+        // DELETE: api/Plants/sku
+        public IHttpActionResult Delete(string sku)
         {
+
+            var thisPlant = repository.GetPlantBySku(sku);
+            if (thisPlant == null)
+            {
+                return  StatusCode(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                repository.RemovePlant(sku);
+                try
+                {
+                    repository.Save();
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(HttpStatusCode.InternalServerError);
+                }
+
+                return StatusCode(HttpStatusCode.NoContent);
+            }
         }
     }
 }

@@ -12,6 +12,5 @@ namespace PlantDomain
         public string Name { get; set; }
         public string FormSize { get; set; }
         public decimal Price { get; set; }
-
     }
 }
