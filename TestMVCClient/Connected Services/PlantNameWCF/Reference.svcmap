@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ed73e064-c14e-40f9-90e0-8302a726d853" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:62426/PlantNameWCF.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PlantNameWCF.wsdl" MetadataType="Wsdl" ID="8de0b87b-ba72-42d9-b7f7-2f9bd25e7fa6" SourceId="1" SourceUrl="http://localhost:62426/PlantNameWCF.svc?wsdl" />
+    <MetadataFile FileName="PlantNameWCF.xsd" MetadataType="Schema" ID="27fa25cc-4e57-4adb-a501-948bc18b499e" SourceId="1" SourceUrl="http://localhost:62426/PlantNameWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="PlantNameWCF1.xsd" MetadataType="Schema" ID="6cc0820f-60f8-4a23-84a3-87c79c45523a" SourceId="1" SourceUrl="http://localhost:62426/PlantNameWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="PlantNameWCF2.xsd" MetadataType="Schema" ID="a14d004a-584d-46e2-afef-b434d64245cd" SourceId="1" SourceUrl="http://localhost:62426/PlantNameWCF.svc?xsd=xsd1" />
+    <MetadataFile FileName="PlantNameWCF.disco" MetadataType="Disco" ID="665eeefb-14d1-4990-aa37-aabc16c9d996" SourceId="1" SourceUrl="http://localhost:62426/PlantNameWCF.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
